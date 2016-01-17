@@ -25,18 +25,18 @@ class StaticImage(SampleBase):
 		
 		im = Image.open("led.png") # Load static image
 		setimage(im, canvas)
-		time.sleep(5)   # Display image for 5 seconds
+		time.sleep(2)   # Display image for 5 seconds
 		
 		
 		im = Image.open("led.jpg") # Load static image
 		setimage(im, canvas)
-		time.sleep(5)   # Display image for 5 seconds
+		time.sleep(2)   # Display image for 5 seconds
 		
 		#Display and repeat a series of images, 0.png, 1.png, 2.png, 3.png etc
 		#Change root directory to that of /rpi-rgb-led-matrix/python/samples/
 		
 		while True:
-			for i in range(0,2):
+			for i in range(0,13):
 				pacman = ("/home/pi/led/python/samples/ImageSeries/" + str(i) + ".png")
 				im = Image.open(pacman)
 				setimage(im, canvas)
