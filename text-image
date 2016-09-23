@@ -1,0 +1,26 @@
+from PIL import ImageFont, Image, ImageDraw
+import textwrap
+
+# Source text, and wrap it.
+userinput = "Steve Bengree"
+text = textwrap.fill(userinput, len(userinput))
+
+# Font size, color and type.
+fontcolor = (0, 255, 0)
+fontsize = 50
+font = ImageFont.truetype("monofonto.ttf", fontsize)
+
+# Determine text size using a scratch image.
+img = Image.new("RGBA", (1,1))
+draw = ImageDraw.Draw(img)
+textsize = draw.textsize(text, font)
+
+# Now that we know how big it should be, create
+# the final image and put the text on it.
+background = (0, 0, 0)
+img = Image.new("RGBA", textsize, background)
+draw = ImageDraw.Draw(img)
+draw.text((0, 0), text, fontcolor, font)
+
+img.show()
+img.save("seesharp.png")
